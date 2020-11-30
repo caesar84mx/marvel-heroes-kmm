@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS HeroEntity (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL,
+real_name TEXT NOT NULL,
+team TEXT NOT NULL,
+first_appearance INTEGER NOT NULL,
+created_by TEXT NOT NULL,
+publisher TEXT NOT NULL,
+avatar_url TEXT NOT NULL,
+bio TEXT NOT NULL
+);
+
+saveNew:
+INSERT INTO HeroEntity(name, real_name, team, first_appearance, created_by, publisher, avatar_url, bio)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+
+get:
+SELECT id, name, real_name, team, first_appearance, created_by, publisher, avatar_url, bio
+FROM HeroEntity
+WHERE id = ?;
+
+getAll:
+SELECT id, name, real_name, team, first_appearance, created_by, publisher, avatar_url, bio
+FROM HeroEntity;
+
+clearAll:
+DELETE FROM HeroEntity;
