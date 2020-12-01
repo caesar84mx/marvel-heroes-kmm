@@ -7,9 +7,5 @@ interface HeroesApi {
 
     companion object {
         const val HEROES = "demos/marvel/"
-
-        val mock = object: HeroesApi {
-            override suspend fun getHeroes(): List<HeroRaw> = listOf()
-        }
     }
 }

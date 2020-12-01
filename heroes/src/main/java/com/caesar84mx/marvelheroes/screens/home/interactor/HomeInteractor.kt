@@ -8,6 +8,7 @@ import com.caesar84mx.marvelheroes.common.data.model.TaskResult
 import com.caesar84mx.marvelheroes.screens.home.HeroesItemUIElement
 import com.caesar84mx.marvelheroes.screens.home.toUIElement
 import com.caesar84mx.shared.common.data.networking.heroes.HeroesApi
+import com.caesar84mx.shared.common.data.networking.heroes.model.responses.HeroRaw
 import com.caesar84mx.shared.common.data.repository.HeroesRepository
 import com.caesar84mx.shared.common.viewmodels.HomeViewModel
 
@@ -34,7 +35,9 @@ class HomeInteractor(private val viewModel: HomeViewModel): ViewModel() {
     companion object {
         val mock: HomeInteractor = HomeInteractor(
             HomeViewModel(
-                api = HeroesApi.mock,
+                api = object: HeroesApi {
+                    override suspend fun getHeroes(): List<HeroRaw> = listOf()
+                },
                 repo = HeroesRepository.mock
             )
         ).apply {

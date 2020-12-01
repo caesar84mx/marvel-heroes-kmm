@@ -20,7 +20,7 @@ object Versions {
     }
 
     object Network {
-        const val ktor = "1.4.2"
+        const val ktor = "1.4.1"
         const val kotlinx = "0.4.1"
         const val kotlinxSerializationCore = "1.0.0-RC"
     }

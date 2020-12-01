@@ -24,7 +24,7 @@ fun initKoin(appModules: List<Module> = listOf()): KoinApplication {
 
 private val coreModule = module {
     single { Platform() }
-    single<HeroesApi> { HeroesApiImpl(get()) }
+    single<HeroesApi> { HeroesApiImpl(get(), get()) }
     single { HeroesDao(get(), get(), bkgDispatcher) }
     single<HeroesRepository> { HeroesRepositoryImpl(get()) }
     single { HomeViewModel(get(), get()) }
